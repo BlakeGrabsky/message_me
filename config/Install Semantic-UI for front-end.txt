@@ -1,0 +1,28 @@
+open Gemfile
+add under gem 'jbuilder', '~> 2.7'
+	gem 'semantic-ui-sass'
+	gem 'jquery-rails'
+	
+in linux terminal
+	bundle isntall
+	
+create file custom.css.scss in app > assets > stylesheets
+	@import "semantic-ui";
+	
+since we are in Rails 6, in linux terminal
+	yarn add jquery
+	
+open environment.js in config > webpack
+add above module.exports = environment
+	const webpack = require('webpack')
+	environment.plugins.prepend('Provide',
+	  new webpack.ProvidePlugin({
+		$: 'jquery/src/jquery',
+		jQuery: 'jquery/src/jquery'
+	  })
+	)
+	
+open application.js in app > javascript > packs
+add under all of the other require statements
+	require('jquery')
+	require('semantic-ui')
