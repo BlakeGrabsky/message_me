@@ -12,6 +12,9 @@ require('semantic-ui')
 
 $(document).on('turbolinks:load', function() {
 	$('.ui.dropdown').dropdown();
+	$('.message .close').on('click', function() {
+		$(this).closest('message').trasition('fade');
+	});
 })
 
 // Uncomment to copy all static images under ../images to the output folder and reference

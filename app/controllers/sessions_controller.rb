@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 		user = User.find_by(username: params[:sessions][:username])
 		if user && user.authenticate(params[:sessions][:password])
 			session[:user_id] = user.id
-			flash[:success] = "You nave succesfully logged in"
+			flash[:success] = "You have succesfully logged in"
 			redirect_to root_path
 		else
 			flash.now[:error] = "There was something wrong with your login information"
